@@ -7,8 +7,11 @@ class UsersController < ApplicationController
 		@user = User.new
 	end
 
+	def edit
+		@user = User.find_by_id(params[:id])
+	end
+
 	def create
-		byebug
 		@user = User.new(user_params)
 		@user.save
 	end
@@ -16,7 +19,7 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit(:name, :email, :hashed_password, :description)
+		params.require(:user).permit(:name, :email, :password, :description)
 	end
 
 end
