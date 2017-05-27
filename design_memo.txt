@@ -1,0 +1,47 @@
+signup
+signin
+
+listings#index
+listings#create
+listings#new
+listings#show
+
+orders#create
+orders#index
+users#show
+
+user
+	name
+	description
+	email
+	address
+	avator
+
+category
+	name
+
+subcategory
+	category_id
+	name
+
+listings
+	category_id
+	subcategory_id
+	seller_id
+	name
+	description
+	condition new/like_new/good/fair/poor
+	price
+	shipping_paid_by  buyer/seller/ undecided
+	ships_from
+	photo
+	status  on_sall/sold/not_available
+order
+	listing_id
+	buyer_id
+
+
+payment
+feedback
+
+
