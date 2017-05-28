@@ -10,16 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170527022203) do
+ActiveRecord::Schema.define(version: 20170528110852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categoryl1s", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categoryl2s", force: :cascade do |t|
+    t.integer "categoryl1_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "listings", force: :cascade do |t|
     t.string "name"
     t.string "seller_id"
-    t.integer "category_id"
-    t.integer "subcategory_id"
+    t.integer "categoryl1_id"
+    t.integer "categoryl2_id"
     t.string "description"
     t.integer "price"
     t.integer "condition"
@@ -30,10 +43,19 @@ ActiveRecord::Schema.define(version: 20170527022203) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer "listing_id"
+    t.integer "buyer_id"
+    t.datetime "ordered_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "hashed_password"
+    t.string "address"
     t.string "avatar"
     t.string "description"
     t.datetime "created_at", null: false

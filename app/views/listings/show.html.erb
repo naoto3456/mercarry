@@ -1,0 +1,12 @@
+	<div class ='items_box'>
+			<p><%= @listing.name %></p>
+			<p><%= @listing.price %></p>
+			<p><%= @listing.description %></p>
+			<p><%= @listing.seller.name %></p>
+
+			<%= form_for [@listing,@order] do |f| %>
+
+				<%= f.submit %><br>
+			<% end %>
+	</div>
+
