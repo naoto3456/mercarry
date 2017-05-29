@@ -44,4 +44,24 @@ order
 payment
 feedback
 
+category
+	woman
+		Dress
+		Jeens
+		skirts
+	men
+		tops
+		pants
+		shorts
+	kids
+	home
+	vintage_collection
+	beauty
+	electronics
+	sports_outdoors
+	handmade
+	other
+
+subcategory
+
 

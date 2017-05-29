@@ -1,5 +1,8 @@
 class User < ApplicationRecord
-	include BCrypt
+  has_many :listings, class_name: 'Listing', foreign_key: 'seller_id'
+	has_many :orders, class_name: 'Order', foreign_key: 'buyer_id'
+
+  include BCrypt
 
 	def password
 		if hashed_password.nil?
