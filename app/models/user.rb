@@ -2,6 +2,8 @@ class User < ApplicationRecord
   has_many :listings, class_name: 'Listing', foreign_key: 'seller_id'
 	has_many :orders, class_name: 'Order', foreign_key: 'buyer_id'
 
+  mount_uploader :avatar, PhotoUploader
+
   include BCrypt
 
 	def password
