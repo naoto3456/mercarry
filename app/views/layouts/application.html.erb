@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <div id="flash">
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>"><%= value %></div>
+        <% end %>
+    </div>
+
   	<% if logged_in?  %>
   		<%= current_user.email%>
   		<%= link_to "log out", session_path(current_user.id), :method => :delete %>
