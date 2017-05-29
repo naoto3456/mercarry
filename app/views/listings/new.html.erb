@@ -1,0 +1,10 @@
+<%= form_for @listing do |f| %>
+	<%= f.file_field :photo %><br>
+	<%= f.text_field :name, placeholder:"NAME" %><br>
+	<%= f.text_field :description, placeholder:"description" %><br>
+	<%= f.text_field :categoryl1_id, placeholder:"categoryl1_id" %><br>
+	<%= f.text_field :categoryl2_id, placeholder:"categoryl2_id" %><br>
+	<%= f.text_field :shipping_paid_by, placeholder:"shipping_paid_by" %><br>
+	<%= f.text_field :price, placeholder:"price" %><br>
+	<%= f.submit %><br>
+<% end %>
