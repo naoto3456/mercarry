@@ -14,13 +14,18 @@ class SessionsController < ApplicationController
 				puts 'OK'
 				session[:user_id] = @user.id
 				#redirect_to listings_path :flash => { :success => "Login succeed!" }
-				flash[:error] = "Login succeed!"
+				flash[:notice] = "Login succeed!"
 				redirect_to listings_path 
 			else
 				flash.now[:error] = "Login failed, Please confirm your email address and password!"
 				render 'new'
 			end
 		end 
+	end
+
+	def create_from_omniauth
+		flash[:notice] = "Login succeed!"
+		redirect_to listings_path
 	end
 
 	def destroy

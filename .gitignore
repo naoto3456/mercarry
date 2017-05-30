@@ -19,3 +19,6 @@
 .byebug_history
 .design_memo.txt
 
+
+# Ignore application configuration
+/config/application.yml
