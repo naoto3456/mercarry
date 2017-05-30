@@ -67,11 +67,13 @@ subcategory
 
 todo
 
-facebooklogin
+facebooklogin ok
+
 searching by cat1, cat2, and keyword
 usgin api(braintree) 
 ajax (bookmark)
 
+rspec
 
 
 
