@@ -17,9 +17,14 @@
       </div>
 
     	<% if logged_in?  %>
-    		<%= current_user.email%>
-    		<%= link_to "log out", session_path(current_user.id), :method => :delete %>
-    	<% end %>
+    		Login : <%= current_user.name%>  (<%= current_user.email%>)
+        <ul class="list-nav00">
+          <li><%= link_to "Top", "/listings" %></li>
+          <li><%= link_to "Create New Listing", new_listing_path %></li>
+          <li><%= link_to "Log Out", session_path(current_user.id), :method => :delete %></li>
+        </ul>
+      <% end %>    
+
       <%= yield %>
     </div>
   </body>

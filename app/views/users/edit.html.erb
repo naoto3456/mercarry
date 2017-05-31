@@ -4,5 +4,5 @@
 	<%= image_tag("#{@user.avatar.url}") %>
 	<%= f.file_field :avatar %><br>	
 	<%= f.text_field :description, placeholder:"DESCRIPTION" %><br>
-	<%= f.submit %><br>
+	<%= f.submit class: 'btn btn-primary'%><br>
 <% end %>
