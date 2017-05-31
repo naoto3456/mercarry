@@ -1,18 +1,24 @@
 	<div class ='items_box'>
-			<%= image_tag("#{@listing.photo.url}") %>
+      <%= image_tag("#{@listing.photo.detail.url}") %>
+			<p>name : <%= @listing.name %></p>
+			<p>Price : $<%= @listing.price %></p>
+			<p>Description : <%= @listing.description %></p>
+			<p>Status : <%= @listing.status %></p>
+      <p>Condition : <%= @listing.condition %></p>
+      <p>Seller : <%= @listing.seller.name %></p>
 
-			<p><%= @listing.name %></p>
-			<p><%= @listing.price %></p>
-			<p><%= @listing.description %></p>
-			<p><%= @listing.seller.name %></p>
+      <% if @listing.status == :on_sale %>
 
-			<%= form_for [@listing,@order] do |f| %>
-
-				<%= f.submit %><br>
-			<% end %>
+  			<%= form_for [@listing,@order] do |f| %>
+  				<%= f.submit class: 'btn btn-primary'%><br>
+  			<% end %>
+      <% else %>
+          <p>You Cant not buy this. </p>
+      <% end %>
+      
 	</div>
 
-	   <div class="demo-frame">  
+    <div class="demo-frame">  
 
       <%= form_for :checkout_form, url: listing_orders_path(@listing), html: { id: "cardForm"} do |form| %>
 

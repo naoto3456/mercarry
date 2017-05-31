@@ -1,6 +1,18 @@
 <%= form_tag (sessions_path) do %>
-	<%= text_field_tag :email, '', placeholder:'EMAIL' %><br>
-	<%= text_field_tag :password, '', placeholder:'PASSWORD'%><br>
-	<%= submit_tag %><br>
+	<div class="row">
+		<div class="col-xs-12">
+			<%= text_field_tag :email, '', class:"form-control", placeholder:'EMAIL' %>
+		</div>
+		<div class="col-xs-12">
+			<%= text_field_tag :password, '', class:"form-control", placeholder:'PASSWORD'%>
+		</div>
+		<div class="col-xs-12">
+			<%= submit_tag 'Log in', class:'btn btn-primary' %>
+		</div>
 <% end %>
-<li><%= link_to "Sign in with Facebook", "/auth/facebook" %></li>
+		<div class="col-xs-12">
+			<%= link_to "Sign in with Facebook Accout", "/auth/facebook" %>
+		</div>
+	<div>
+
+

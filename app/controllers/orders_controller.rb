@@ -1,9 +1,9 @@
 class OrdersController < ApplicationController
 
 	def create
-		byebug
-		order = Order.new(listing_id: params[:listing_id], buyer_id: view_context.current_user.id, ordered_at: Time.now)
-		
+
+		order = Order.new(listing_id: params[:listing_id], buyer_id: view_context.current_user.id, ordered_at: Time.now, status)
+
 		nonce_from_the_client = params[:checkout_form][:payment_method_nonce]
 
 	  result = Braintree::Transaction.sale(
@@ -14,17 +14,13 @@ class OrdersController < ApplicationController
 	    }
 	   )
 
-	  byebug
-
 		if order.save
-			flash[:notice] = "your order succeed."
+			flash[:success] = "your order succeed."
 			redirect_to listing_path(params[:listing_id])
 		else
-			flash.now[:notice] = "your order failed."
+			flash.now[:danger] = "your order failed."
 			render listing_path(params[:listing_id])			
 		end
-
-	  byebug
 
 	end
 
