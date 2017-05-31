@@ -24,6 +24,7 @@ class ListingsController < ApplicationController
 	def show
 		@listing = Listing.find_by_id(params[:id])
 		@order = Order.new
+		@client_token = Braintree::ClientToken.generate
 	end
 
 	private
